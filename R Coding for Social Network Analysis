@@ -1,0 +1,81 @@
+# Author: Erik Leon, Huaiyu Chen
+
+# 1.1 Install Packages
+## For data Wrangling 
+library(dplyr)
+library(stringr)
+library(tidyr)
+
+## For network object
+library(network)
+
+## For network graph
+library(igraph)
+
+## For file 
+library(readxl)
+library(writexl)
+
+# 1.2 Loading Data
+data_org <- read_excel("SD_project.xlsx") %>%
+  rename_all(~str_replace_all(., "\\s+", ""))
+
+# 2. Data Cleaning
+## Select relevant columns
+data <- data_org %>%
+  filter(
+    str_detect(
+      FullText,
+        "(?i:(#?covid-?(19)?)|(corona(virus)?)|(pandemic))"
+      )
+    ) 
+
+# 3. Social Network Analysis
+# 3.1 node list
+nodes <- data %>%
+  select(id = Author)
+                
+mentioned_nodes <- data %>% 
+  select(id = MentionedAuthors) %>%
+  mutate(id = str_replace_all(id, "@", "")) %>%
+  separate_rows(id, sep = ", ")
+
+nodes_list <- nodes %>%
+  bind_rows(mentioned_nodes) %>%
+  distinct(id, .keep_all = T) %>%
+  arrange(id)
+
+# 3.2 edge list
+edges_list <- data %>%
+  select(V1 = Author, V2 = MentionedAuthors) %>%
+  separate_rows(V2, sep = ", ") %>%
+  mutate(V2 = str_replace_all(V2, "@", ""))
+  
+# 3.3 Weighted Edges: weighted_edges
+weighted_edges <- edges_list %>%
+  count(V1, V2, name = "weight")
+
+# 3.4 Remove NA: weighted_edges_NA
+weighted_edges_NA <-weighted_edges %>%
+  select(V1, V2, weight)%>%
+  filter(!is.na(V1)) %>%
+  filter(!is.na(V2))
+  
+# 3.5 Directed Network
+graph_mention <- graph_from_data_frame(edges_list, directed = TRUE)
+
+# 4. Create node attribute: in-degree
+V(graph_mention)$deg.in <- degree(graph_mention, mode = "in")
+
+SD_in <- vertex.attributes(graph_mention) %>% 
+  as.data.frame()
+  
+# 5. Find Opinion Leaders 
+## top1% = 541
+SD_in_op <-dplyr::slice_max(SD_in, order_by=deg.in,  n = 530) %>%
+  select(Author=name, deg.in) %>%
+  left_join(data, by= "Author") %>% 
+  distinct(Author, .keep_all = TRUE)
+
+# 5. Save list of nodes with in-degree 
+write_xlsx(SD_in_op, "SD_in_op.xlsx")
