@@ -26,4 +26,5 @@ See more in:
 We use in-degree centrality rather than out-degree centrality to define opinion leaders because this measurement focuses on how the account is retweeted by others. 
 - We defined opinion leaders as those with the top 1% of in-degree among all accounts in our dataset according to the operationalization of Guo et al (2020).
 
-- See more in Guo, L., Rohde, J. A., & Wu, H. D. (2020). Who is responsible for Twitter’s echo chamber problem? Evidence from 2016 US election networks. Information, Communication & Society, 23(2), 234-251. https://doi.org/10.1080/1369118X.2018.1499793 
+See more 
+- Guo, L., Rohde, J. A., & Wu, H. D. (2020). Who is responsible for Twitter’s echo chamber problem? Evidence from 2016 US election networks. Information, Communication & Society, 23(2), 234-251. https://doi.org/10.1080/1369118X.2018.1499793 
