@@ -1,0 +1,32 @@
+# Author: Botao Jiang
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+import pandas as pd
+
+df = pd.read_excel('/Users/Toby/Downloads/data_final.xlsx')
+df1 = pd.read_excel('/Users/Toby/Downloads/orgnization_list.xlsx',sheet_name="Sheet1")
+
+# df1 = df[df['Full Text'].str.contains("Holy See",na=False)]
+# def increment():
+# 	n = 0
+# 	print(n)
+
+# 	while True:
+# 	    n += 1
+# 	    print(n)
+# print(df1.columns)
+lst = []
+org_list = df1['organization'].tolist()
+def count_country(thislist):
+	for i in thislist:
+		count=sum(df['Full Text'].str.contains(i,na=False,case=False))
+		# print(i,count)
+		lst.append([i,count])
+
+count_country(org_list)
+print(lst)
+cols=['organization','count']
+df2 = pd.DataFrame(lst, columns=cols)
+df2.to_excel('/org_final_count_2.xlsx')
+# df1.to_excel('/Users/Toby/Downloads/data_final_count.xlsx')
