@@ -16,10 +16,10 @@ Please feel free to email the leading author Huaiyu Chen (hch260@g.uky.edu) if y
 - Initial communication research adopted WST solely focused on how news organizations in core countries produced news stories flow to those in peripheral or semi-peripheral countries  (Wu, 1998).
 - We proposed that the current world economic system is more complicated and fluid than in the past, and thus we should use countries’ attributes (e.g., population) and economic resources (e.g., GDP) rather than stick to the past fixed categories.
 
-- See more in 
-Wallerstein, I. (1974). The modern world-system: Capitalist agriculture and the origins of the European world-economy in the sixteenth century. Academic Press.
-Wu, H. D. (1998). Investigating the determinants of international news flow: A meta-analysis. International Communication Gazette, 60(6), 493-512. http://dx.doi.org/10.1177/0016549298060006003
-Wu, H. D., Groshek, J., & Elasmar, M. G. (2016). Which countries does the world talk about? An examination of factors that shape a country presence on Twitter. International Journal of Communication, 10, 1860-1877. https://ijoc.org/index.php/ijoc/article/view/5002 
+See more in:
+- Wallerstein, I. (1974). The modern world-system: Capitalist agriculture and the origins of the European world-economy in the sixteenth century. Academic Press.
+- Wu, H. D. (1998). Investigating the determinants of international news flow: A meta-analysis. International Communication Gazette, 60(6), 493-512. http://dx.doi.org/10.1177/0016549298060006003
+- Wu, H. D., Groshek, J., & Elasmar, M. G. (2016). Which countries does the world talk about? An examination of factors that shape a country presence on Twitter. International Journal of Communication, 10, 1860-1877. https://ijoc.org/index.php/ijoc/article/view/5002 
 
 ## 2. Operationalization for opionion leaders & in-degree centrality
 - A reliable measurement that helps us to identify the position of each account within the social network.
