@@ -10,7 +10,7 @@ The co-authors (followed by the authorship order) are Huaiyu Chen1, Erik Leon2, 
 We would be grateful to hear any feedback.
 Please feel free to email the leading author Huaiyu Chen (hch260@g.uky.edu) if you have any question or comment.
 
-# FAQs
+# FQAs
 ## 1. World Systems Theory
 - Initial WST classified the word system into three fixed categories: core, peripheral, and semi-peripheral countries depending on their economical, political, and cultural power (Wallerstein, 1974).
 - Initial communication research adopted WST solely focused on how news organizations in core countries produced news stories flow to those in peripheral or semi-peripheral countries  (Wu, 1998).
